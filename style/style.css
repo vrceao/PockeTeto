@@ -1,0 +1,397 @@
+
+/*! Main */
+
+/*? Colors
+-> Background: #161620
+-> Tinted Background: #121216
+-> Buttons: #181820
+-> Accent (Red): #ffb0b0
+-> Accent (Green): #b0ffb0
+-> Accent (Purple): #b0b0ff
+-> Accent (Yellow): #ffffb0
+-> Accent (Blue): #b0ffff
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: #ffffff;
+    font-family: "Roboto";
+    font-size: 16px;
+    transition: 300ms;
+    outline: none;
+}
+
+/* Hide the scrollbars (Only chrome I think) */
+::-webkit-scrollbar {
+    display: none;
+}
+
+canvas {
+    position: absolute;
+}
+
+button {
+    border: none;
+    box-sizing: border-box;
+    background: #181820;
+    border: 2px solid #ffffff00;
+    border-radius: 8px;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: #ffffffff 4px 4px;
+}
+
+button:active {
+    box-shadow: #b0b0ffff 4px 4px;
+}
+
+.scrollableContainer {
+    overflow-y: auto;
+}
+
+.scrollableContainer > * {
+    flex-shrink: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    background: #161620;
+    background-image: url("../assets/background.png");
+    background-position: 10%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container {
+    width: 1280px !important;
+    height: 720px !important;
+
+    background: #161620;
+
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+/*! Sidebar */
+
+#sidebar {
+    width: 128px;
+    height: 720px;
+
+    background: #121216;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+#pauseButton {
+    width: 96px;
+    height: 48px;
+    margin-top: 16px;
+
+    background: #181820;
+    border: 2px solid #b0b0ffff;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#pauseButton > img {
+    width: 32px;
+}
+
+#menuButton {
+    width: 96px;
+    height: 48px;
+
+    background: #181820;
+    border: 2px solid #ffffff00;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#menuButton > img {
+    width: 32px;
+}
+
+.sidebarTile {
+    width: 96px;
+    height: 99.2px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.sidebarTile > img {
+    width: 48px;
+    height: 48px;
+}
+
+.sidebarTile > p {
+    width: 80px;
+    height: 20px;
+
+    font-weight: bold;
+    text-align: center;
+}
+
+/*! Panel */
+
+#panel {
+    width: 516px;
+    height: 720px;
+
+    background: #121216;
+    border-radius: 12px;
+    opacity: 0%;
+}
+
+.panelCategory {
+    width: 516px;
+    height: 696px;
+
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.panelCategory > * {
+    width: 492px;
+}
+
+.panelCategory > button {
+    height: 48px;
+}
+
+.panelTitle {
+    width: 468px;
+    height: 64px;
+    margin-top: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    background: #161620;
+    border-radius: 8px;
+    font-size: 32px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panelDesc {
+    width: 468px;
+    padding: 12px;
+
+    background: #161620;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actionContainer {
+    margin-bottom: -4px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.actionContainer > * {
+    width: 242px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    border: none;
+    text-align: center;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*! Home + Teto */
+
+#home {
+    width: 620px;
+    height: 720px;
+
+    background: #161620;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#home p {
+    font-family: "Silkscreen";
+}
+
+#homeTop {
+    display: flex;
+    flex-direction: column;
+}
+
+#homeTop p {
+    font-size: 24px;
+}
+
+#statsGroup {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+#statsButtons {
+    height: 256px;
+    margin-left: -76px;
+
+    background: #121216;
+    border-radius: 8px;
+    opacity: 0%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#statsButtons > button {
+    width: 48px;
+    height: 48px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    border-radius: 6px;
+}
+
+#statsButtons > button > img {
+    height: 28px;
+}
+
+#statsInfo {
+    padding-top: 8px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+#tetoTime {
+    margin-bottom: 8px;
+    color: #ffffb0;
+}
+
+#tetoPausedMessage {
+    margin-bottom: 8px;
+    color: #ffb0b0;
+    opacity: 0%;
+}
+
+.tetoMessages {
+    padding-bottom: 8px;
+
+    display: none;
+    flex-direction: column;
+}
+
+#homeDown p {
+    width: 604px;
+
+    color: #ffffb0;
+    font-family: "Silkscreen";
+    font-size: 16px;
+
+    overflow-wrap: break-word;
+    white-space: normal;
+    line-height: 1.5;
+}
+
+/*! Pause Menu */
+
+#pauseMenuElement {
+    display: none;
+    width: 1116px;
+    height: 696px;
+    padding: 12px;
+
+    background: #121216;
+    border-radius: 12px;
+
+    flex-direction: column;
+}
+
+.pauseMenuEntry {
+    width: 1116px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.pauseMenuEntry > * {
+    height: 51px;
+
+    box-sizing: border-box;
+    border: 2px solid #ffffff00;
+    box-sizing: border-box;
+    border-radius: 8px;
+
+    display: flex;
+}
+
+.pauseMenuTitle {
+    width: 256px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    padding: 10px;
+
+    background: #161620;
+    font-size: 22px;
+}
+
+.pauseMenuEntry > button {
+    width: 256px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    padding: 10px;
+
+    font-size: 22px;
+}
+
+.pauseMenuDescription {
+    width: 580px;
+    padding: 8px;
+
+    background: #161620;
+    font-size: 14px;
+}

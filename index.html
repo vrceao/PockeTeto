@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PockeTeto</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" href="assets/trans.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas></canvas>
+    <div id="container">
+        <div id="sidebar">
+            <button id="pauseButton" onclick="pause();">
+                <img draggable="false" id="pauseSvg" src="assets/svgs/unpause.svg"></svg>
+            </button>
+            <button class="sidebarTile" onclick="changeMenu(0)">
+                <img draggable="false" src="assets/svgs/home.svg"></svg>
+                <p>1. Home</p>
+            </button>
+            <button class="sidebarTile" onclick="changeMenu(1)">
+                <img draggable="false" src="assets/svgs/game.svg"></svg>
+                <p>2. Game</p>
+            </button>
+            <button class="sidebarTile" onclick="changeMenu(2)">
+                <img draggable="false" src="assets/svgs/sleep.svg"></svg>
+                <p>3. Sleep</p>
+            </button>
+            <button class="sidebarTile" onclick="changeMenu(3)">
+                <img draggable="false" src="assets/svgs/food.svg"></svg>
+                <p>4. Food</p>
+            </button>
+            <button class="sidebarTile" onclick="changeMenu(4)">
+                <img draggable="false" src="assets/svgs/work.svg"></svg>
+                <p>5. Leave</p>
+            </button>
+            <button id="menuButton" onclick="pauseMenu();">
+                <img draggable="false" id="menuSvg" src="assets/svgs/menu.svg"></svg>
+            </button>
+        </div>
+        <div id="home">
+            <div id="homeTop">
+                <p id="tetoPausedMessage"></p>
+                <div id="statsGroup">
+                    <div id="statsButtons">
+                        <button class="statsButton" onclick="showMessages(0)"><img draggable="false" src="assets/svgs/home.svg"></button>
+                        <button class="statsButton" onclick="showMessages(1)"><img draggable="false" src="assets/svgs/game.svg"></button>
+                        <button class="statsButton" onclick="showMessages(2)"><img draggable="false" src="assets/svgs/sleep.svg"></button>
+                        <button class="statsButton" onclick="showMessages(3)"><img draggable="false" src="assets/svgs/food.svg"></button>
+                    </div>
+                    <div id="statsInfo">
+                        <p id="tetoTime">Welcome to PockeTeto! ❤️</p>
+                        <p id="tetoHealth">Game about taking care of Teto</p>
+                        <p id="tetoHappiness">-> Press 'T' to read the tutorial <-</p>
+                        <p id="tetoSleep">Unpause the game to begin!</p>
+                        <p id="tetoHunger">^w^</p>
+                    </div>
+                </div>
+            </div>
+            <div id="homeDown">
+                <div class="tetoMessages">
+                    <p>Health</p>
+                </div>
+                <div class="tetoMessages">
+                    <p>Happiness</p>
+                </div>
+                <div class="tetoMessages">
+                    <p>Sleep</p>
+                </div>
+                <div class="tetoMessages">
+                    <p>Hunger</p>
+                </div>
+            </div>
+        </div>
+        <div id="panel">
+            <div class="panelCategory scrollableContainer">
+                <p class="panelTitle">Home (๑•᎑•๑)</p>
+                <p class="panelDesc">Here you can spend time with Teto to make her happier.</p>
+            </div>
+            <div class="panelCategory scrollableContainer">
+                <p class="panelTitle">Game (˶˃ ᵕ ˂˶)</p>
+                <p class="panelDesc">Here you can play with Teto in the backyard doing all kinds of fun activities together.</p>
+            </div>
+            <div class="panelCategory scrollableContainer">
+                <p class="panelTitle">Sleep (ᴗ˳ᴗᶻ𝗓𐰁)</p>
+                <p class="panelDesc">Here you can make Teto rest by putting her to sleep.</p>
+                <div class="actionContainer">
+                    <button id="actionButtonSleep" onclick="actionSleep()">Button</button>
+                    <p id="actionMessageSleep">Message</p>
+                </div>
+                <p class="panelDesc">This is the description for Teto sleep.</p>
+            </div>
+            <div class="panelCategory scrollableContainer">
+                <p class="panelTitle">Food (๑ᵔ⤙ᵔ๑)</p>
+                <p class="panelDesc">Here you can give Teto various foods when she's hungry.</p>
+            </div>
+            <div class="panelCategory scrollableContainer">
+                <p class="panelTitle">Leave (っ- ‸ - ς)</p>
+                <p class="panelDesc">Coming soon! Here you can leave Teto alone and visit your work to earn money or the shop to purchase stuff for Teto.</p>
+            </div>
+        </div>
+        <div id="pauseMenuElement" class="scrollableContainer">
+            <div class="pauseMenuEntry">
+                <p class="pauseMenuTitle">Fullscreen Mode</p>
+                <button id="changeFullscreenButton" onclick="fullscreenMode()">Off</button>
+                <p class="pauseMenuDescription">Changes the roundness of some elements making it look better when playing with fullscreen.</p>
+            </div>
+            <div class="pauseMenuEntry">
+                <p class="pauseMenuTitle">Difficulty</p>
+                <button id="changeDifficultyButton" onclick="changeDifficulty()">Normal (x2)</button>
+                <p class="pauseMenuDescription">Changing the difficulty will make the time flow faster/slower.Sstats will decrease and increase faster/slower. Can't be changed difficulty during gameplay.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
+    <script src="src/menu.js"></script>
+    <script src="src/teto.js"></script>
+    <script src="src/tick.js"></script>
+    <script src="src/keybinds.js"></script>
+    <script src="src/actions.js"></script>
+    <script src="src/canvas.js"></script>
+    <script src="keybinds.json"></script>
+</body>
+</html>
