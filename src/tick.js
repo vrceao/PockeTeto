@@ -17,56 +17,111 @@ function nextTick() {
 
     updateTime();
 
-    actionSleepCheck();
-
     // Reset the tick difference
     teto.stats.tickDifference.health = 0;
     teto.stats.tickDifference.happiness = 0;
     teto.stats.tickDifference.sleep = 0;
     teto.stats.tickDifference.hunger = 0;
 
+    if (teto.action != "sleep") {
+        if (teto.sleepingTime > 0) teto.sleepingTime = 0;
+        teto.sleepingTime--;
+    }
+    if (teto.action == "sleep") {
+        if (teto.sleepingTime < 0) teto.sleepingTime = 0;
+        teto.sleepingTime++;
+    }
+
+    actionSleepCheck();
+
+    let difference;
+
+    // (Debuff) Decrease health & happiness if slept too little sleptForTooLittle
+    if (teto.debuffs.sleep.sleptForTooLittle > 0) {
+        teto.debuffs.sleep.sleptForTooLittle--;
+        difference = -0.01;
+        teto.stats.messages[0].push([`Woke up after less than 6 hours (${difference.toFixed(2)}%/t)`, difference]);
+        teto.stats.tickDifference.health += difference;
+        difference = -0.01;
+        teto.stats.messages[1].push([`Woke up after less than 6 hours (${difference.toFixed(2)}%/t)`, difference]);
+        teto.stats.tickDifference.happiness += difference;
+    }
+
+    // (Debuff) Decrease health if slept past midnight
+    if (teto.debuffs.sleep.sleptLate > 0) {
+        teto.debuffs.sleep.sleptLate--;
+        difference = -0.01;
+        teto.stats.messages[0].push([`Went to sleep past midnight (${difference.toFixed(2)}%/t)`, difference]);
+        teto.stats.tickDifference.health += difference;
+    }
+    // (Debuff) Decrease health if slept too quick
+    if (teto.debuffs.sleep.sleptTooQuick > 0) {
+        teto.debuffs.sleep.sleptTooQuick--;
+        difference = -0.01;
+        teto.stats.messages[0].push([`Went to sleep after less than 14 hours (${difference.toFixed(2)}%/t)`, difference]);
+        teto.stats.tickDifference.health += difference;
+    }
+
     // Increase happiness while Teto is not alone
     if (teto.action != "alone" && teto.action != "sleep") {
-        let difference = 0.02;
-        teto.stats.messages[1].push([`Teto is happy with the player (${difference}%/t)`, difference]);
+        difference = 0.02;
+        teto.stats.messages[1].push([`Teto is happy with the player (${difference.toFixed(2)}%/t)`, difference]);
+        teto.stats.tickDifference.happiness += difference;
+    }
+    // (Debuff) Decrease happiness if slept past 10 AM
+    if (teto.debuffs.sleep.sleptPast10 > 0) {
+        teto.debuffs.sleep.sleptPast10--;
+        difference = -0.01;
+        teto.stats.messages[1].push([`Teto slept past 10 AM (${difference.toFixed(2)}%/t)`, difference]);
+        teto.stats.tickDifference.happiness += difference;
+    }
+    // (Debuff) Decrease happiness if sleep reached 100%
+    if (teto.debuffs.sleep.sleepReached100 > 0) {
+        teto.debuffs.sleep.sleepReached100--;
+        difference = -0.01;
+        teto.stats.messages[1].push([`Sleep reached 100% (${difference.toFixed(2)}%/t)`, difference]);
         teto.stats.tickDifference.happiness += difference;
     }
 
     // Nautral food decrease
     if (teto.action != "food" && teto.action != "sleep") {
-        let difference = -0.15;
-        teto.stats.messages[3].push([`Natural decrease (${difference}%/t)`, difference]);
+        difference = -0.15;
+        teto.stats.messages[3].push([`Natural decrease (${difference.toFixed(2)}%/t)`, difference]);
         teto.stats.tickDifference.hunger += difference;
     }
     // Nautral food decrease (sleep)
     if (teto.action != "food" && teto.action == "sleep") {
-        let difference = -0.10;
-        teto.stats.messages[3].push([`Natural decrease while sleeping (${difference}%/t)`, difference]);
+        difference = -0.10;
+        teto.stats.messages[3].push([`Natural decrease while sleeping (${difference.toFixed(2)}%/t)`, difference]);
         teto.stats.tickDifference.hunger += difference;
     }
 
     // Nautral sleep decrease
     if (teto.action != "sleep") {
-        let difference = -0.05;
-        teto.stats.messages[2].push([`Natural decrease (${difference}%/t)`, difference]);
+        difference = -0.05;
+        teto.stats.messages[2].push([`Natural decrease (${difference.toFixed(2)}%/t)`, difference]);
         teto.stats.tickDifference.sleep += difference;
     }
     // Nautral sleep increase
     if (teto.action == "sleep") {
-        let difference = 0.15;
-        teto.stats.messages[2].push([`Teto is sleeping (${difference}%/t)`, difference]);
+        difference = 0.15;
+        teto.stats.messages[2].push([`Teto is sleeping (${difference.toFixed(2)}%/t)`, difference]);
         teto.stats.tickDifference.sleep += difference;
     }
 
     // Change percentage color based on increase/decrease
     if (teto.stats.tickDifference.health > 0) tetoHealth.style.color = "#b0ffb0";
     else if (teto.stats.tickDifference.health < 0) tetoHealth.style.color = "#ffb0b0";
+    else tetoHealth.style.color = "";
     if (teto.stats.tickDifference.happiness > 0) tetoHappiness.style.color = "#b0ffb0";
     else if (teto.stats.tickDifference.happiness < 0) tetoHappiness.style.color = "#ffb0b0";
+    else tetoHappiness.style.color = "";
     if (teto.stats.tickDifference.sleep > 0) tetoSleep.style.color = "#b0ffb0";
     else if (teto.stats.tickDifference.sleep < 0) tetoSleep.style.color = "#ffb0b0";
+    else tetoSleep.style.color = "";
     if (teto.stats.tickDifference.hunger > 0) tetoHunger.style.color = "#b0ffb0";
     else if (teto.stats.tickDifference.hunger < 0) tetoHunger.style.color = "#ffb0b0";
+    else tetoHunger.style.color = "";
 
     // Update stats
     teto.stats.health += teto.stats.tickDifference.health;

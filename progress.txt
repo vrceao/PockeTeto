@@ -1,0 +1,31 @@
+
+✗ or ✓ | Date added to progress.txt / Date added to the game | Task
+
+=== Main
+
+✓ | 30.07.25/30.07.25 | Make a progress.txt file with tasks.
+✗ | 30.07.25/30.07.25 | Round all stat-related values every tick toFixed(2).
+✗ | 30.07.25/xx.xx.xx | Obtain sprites of Teto and render them on the screen using p5js, different sprites based on current actions.
+✗ | 02.08.25/xx.xx.xx | Make multiple style files so that it's easier to navigate.
+✗ | 02.08.25/xx.xx.xx | Add sound effects, preferably the one from web extension.
+
+=== Home
+
+=== Game
+
+=== Sleep
+
+✓ | 30.07.25/02.08.25 | If Teto wakes up after less than 6 hours, receive a health and happiness debuff.
+✓ | 30.07.25/02.08.25 | After waking up, Teto can't sleep for the next 14 hours.
+✗ | 02.08.25/xx.xx.xx | Add a buff to sleeping that will give Teto health after sleeping for exactly 8 hours +- 30 minutes.
+
+=== Food
+
+✗ | 30.07.25/xx.xx.xx | Add 3 foods.
+✗ | 02.08.25/xx.xx.xx | Add functionality to foods.
+✗ | 02.08.25/xx.xx.xx | Make tetoElements.foodMessage[2] in changeFood() support in-game hours display and support 1 digit values.
+✗ | 02.08.25/xx.xx.xx | Add debuffs when food is too high.
+
+=== Leave
+
+✗ | 30.07.25/xx.xx.xx | Create an interface where the player can leave to work and store.

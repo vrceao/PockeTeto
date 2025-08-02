@@ -1,8 +1,26 @@
 
+//! Onload function that changes user preferences
+
 onload = function() {
-    // Tutorial keybind text at the start
-    if (keybinds.tutorial[0] == "t" && keybinds.tutorial[1] == "T" && keybinds.tutorial[2] == "" && keybinds.tutorial[3] == "" && keybinds.tutorial[4] == "");
-    else tetoHappiness.textContent = `-> Press '${keybinds.tutorial[0]}' to read the tutorial <-`;
+    // Update the strings in food
+    changeFood(0);
+    // Disable context menu
+    if (preferences.disableContextMenu) {
+        document.body.oncontextmenu = function() {
+            return false;
+        };
+    }
+    // Always fullscreen mode
+    if (preferences.alwaysFullscreenMode) {
+        fullscreenMode();
+    }
+    // Default difficulty
+    let current = 2;
+    for (let i = 0; i < [2, 3, 5, 10, 20, 1].length; i++) {
+        if (current == preferences.defaultDifficulty) break;
+        changeDifficulty();
+        current = [2, 3, 5, 10, 20, 1][([2, 3, 5, 10, 20, 1].indexOf(current) + 1) % [2, 3, 5, 10, 20, 1].length];
+    }
 }
 
 //! Switching Categories
@@ -46,8 +64,8 @@ function pause() {
 
     if (teto.settings.paused) {
         if (!teto.settings.started) {
-            changeMenu(0);
-            showMessages(0);
+            if (teto.settings.menu == null) changeMenu(0);
+            if (teto.settings.messages == null) showMessages(0);
 
             setInterval(() => {
                 frame();
@@ -124,7 +142,7 @@ function showMessages(stat) {
     tetoElements.statsButton[stat].style.border = `2px solid #b0b0ffff`;
 }
 
-//! Stats details renderer
+//! Stat messages renderer
 
 function updateDetails() {
     for (let i = 0; i < teto.stats.messages.length; i++) {

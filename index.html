@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 </head>
 <body>
     <canvas></canvas>
@@ -55,7 +56,7 @@
                     <div id="statsInfo">
                         <p id="tetoTime">Welcome to PockeTeto! ❤️</p>
                         <p id="tetoHealth">Game about taking care of Teto</p>
-                        <p id="tetoHappiness">-> Press 'T' to read the tutorial <-</p>
+                        <p id="tetoHappiness">Check 'readme.md' for more info</p>
                         <p id="tetoSleep">Unpause the game to begin!</p>
                         <p id="tetoHunger">^w^</p>
                     </div>
@@ -80,27 +81,95 @@
             <div class="panelCategory scrollableContainer">
                 <p class="panelTitle">Home (๑•᎑•๑)</p>
                 <p class="panelDesc">Here you can spend time with Teto to make her happier.</p>
+                <div class="panelList">
+                    <b>Gameplay</b>
+                    <p>• This is a simulation game in which you need to take care of your virtual Kasane Teto.</p>
+                    <p>• The point of the game is to balance Teto's stats.</p>
+                    <p>• When any of the stats reaches 0.0%, or hunger reaches 150.0%, you lose.</p>
+                    <b>Buffs & Debuffs</b>
+                    <p>• You can get various buffs and debuffs by playing.</p>
+                    <p>• They slowly increase/decrease your stats.</p>
+                    <p>• Each buff and debuff lasts for 8 in-game hours.</p>
+                    <p>• Every single buff and debuff you can get is listed on the panel in each category.</p>
+                </div>
             </div>
             <div class="panelCategory scrollableContainer">
                 <p class="panelTitle">Game (˶˃ ᵕ ˂˶)</p>
                 <p class="panelDesc">Here you can play with Teto in the backyard doing all kinds of fun activities together.</p>
+                <div class="panelList">
+                    <b>Information</b>
+                    <p>• The game feature isn't implemented yet.</p>
+                    <b>Buffs</b>
+                    <p>• None.</p>
+                    <b>Debuffs</b>
+                    <p>• None.</p>
+                </div>
             </div>
             <div class="panelCategory scrollableContainer">
                 <p class="panelTitle">Sleep (ᴗ˳ᴗᶻ𝗓𐰁)</p>
                 <p class="panelDesc">Here you can make Teto rest by putting her to sleep.</p>
                 <div class="actionContainer">
-                    <button id="actionButtonSleep" onclick="actionSleep()">Button</button>
-                    <p id="actionMessageSleep">Message</p>
+                    <button id="actionButtonSleep" onclick="actionSleep()">Put to sleep</button>
+                    <p id="actionMessageSleep">Game not started</p>
                 </div>
-                <p class="panelDesc">This is the description for Teto sleep.</p>
+                <div class="panelList">
+                    <b>Information</b>
+                    <p>• Teto can be asleep between 22:00-10:00.</p>
+                    <p>• Teto can fall asleep between 22:00-04:00.</p>
+                    <p>• Teto can't go to sleep during any other action.</p>
+                    <b>Buffs</b>
+                    <p>• None.</p>
+                    <b>Debuffs</b>
+                    <p>• If Teto falls asleep after 00:00, she receives a debuff.</p>
+                    <p>• If Teto wakes up after less than 6 hours, she receives a debuff.</p>
+                    <p>• If Teto goes to sleep after less than 14 hours have passed since waking up, she receives a debuff.</p>
+                </div>
             </div>
             <div class="panelCategory scrollableContainer">
                 <p class="panelTitle">Food (๑ᵔ⤙ᵔ๑)</p>
                 <p class="panelDesc">Here you can give Teto various foods when she's hungry.</p>
+                <div class="foodContainer">
+                    <div class="foodHeader">
+                        <button onclick="changeFood(-1)"><</button>
+                        <p class="foodName foodNameAlt">Sweets</p>
+                        <p class="foodName">Meat</p>
+                        <p class="foodName foodNameAlt">Veggies</p>
+                        <button onclick="changeFood(1)">></button>
+                    </div>
+                    <div class="foodContent">
+                        <p class="foodMessage">Heavy and savory food. Perfect for recovering after a long break, gaining energy and strength fast.</p>
+                        <b>Statistics</b>
+                        <p class="foodMessage">• You own 1 of this food. It costs $11.99.</p>
+                        <p class="foodMessage">• This food will take Teto 00:20 to consume.</p>
+                        <p class="foodMessage">• Teto gains +70.0% hunger after eating this food.</p>
+                        <p class="foodMessage">• Eating this will give you a sleep buff.</p>
+                    </div>
+                </div>
+                <div class="actionContainer">
+                    <button id="actionButtonFood" onclick="actionFood()">Feed Teto</button>
+                    <p id="actionMessageFood">Game not started</p>
+                </div>
+                <div class="panelList">
+                    <b>Information</b>
+                    <p>• None of the foods above work yet. Use the button below (scroll) to recover food.</p>
+                    <b>Buffs</b>
+                    <p>• None.</p>
+                    <b>Debuffs</b>
+                    <p>• None.</p>
+                </div>
+                <button onclick="teto.stats.hunger += 10">(temporary) recover 10% food</button>
             </div>
             <div class="panelCategory scrollableContainer">
                 <p class="panelTitle">Leave (っ- ‸ - ς)</p>
-                <p class="panelDesc">Coming soon! Here you can leave Teto alone and visit your work to earn money or the shop to purchase stuff for Teto.</p>
+                <p class="panelDesc">Here you can leave Teto alone and visit your work to earn money or the shop to purchase stuff for Teto.</p>
+                <div class="panelList">
+                    <b>Information</b>
+                    <p>• The leave feature isn't implemented yet.</p>
+                    <b>Buffs</b>
+                    <p>• None.</p>
+                    <b>Debuffs</b>
+                    <p>• None.</p>
+                </div>
             </div>
         </div>
         <div id="pauseMenuElement" class="scrollableContainer">
@@ -118,12 +187,17 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
-    <script src="src/menu.js"></script>
-    <script src="src/teto.js"></script>
-    <script src="src/tick.js"></script>
-    <script src="src/keybinds.js"></script>
-    <script src="src/actions.js"></script>
     <script src="src/canvas.js"></script>
-    <script src="keybinds.json"></script>
+
+    <script src="src/teto.js"></script>
+
+    <script src="src/menu.js"></script>
+    <script src="src/tick.js"></script>
+
+    <script src="src/sleep.js"></script>
+    <script src="src/food.js"></script>
+
+    <script src="src/keypressed.js"></script>
+    <script src="src/settings.js"></script>
 </body>
 </html>
