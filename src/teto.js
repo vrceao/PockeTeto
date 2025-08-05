@@ -23,16 +23,28 @@ let teto = {
         started: false,
         paused: true,
         pauseMenu: false,
+        tutorial: false,
         gameover: false
     },
-    // Negative effects on the player
+    // Buffs and debuffs
     debuffs: {
+        home: {
+            didntPet: 0
+        },
         sleep: {
             sleptPast10: 0,
             sleptLate: 0,
             sleepReached100: 0,
             sleptForTooLittle: 0,
             sleptTooQuick: 0
+        },
+        food: {
+
+        }
+    },
+    buffs: {
+        sleep: {
+            SleptGoodAmount: 0
         },
         food: {
 
@@ -67,6 +79,8 @@ let teto = {
     // Actions: home, game, sleep, food, alone
     action: "home",
     sleepingTime: null,
+    sleepCooldown: 0,
+    petCooldown: 30,
     selectedFood: 0,
     // Time management
     time : {

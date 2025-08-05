@@ -1,0 +1,168 @@
+
+/*! Panel */
+
+#panel {
+    width: 516px;
+    height: 720px;
+
+    background: #121216;
+    border-radius: 12px;
+    opacity: 0%;
+}
+
+.panelCategory, #tutorialElement {
+    width: 516px;
+    height: 696px;
+
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.panelCategory > *, #tutorialElement > * {
+    width: 492px;
+}
+
+.panelCategory > button, #tutorialElement > button {
+    height: 48px;
+}
+
+.panelTitle {
+    width: 468px !important;
+    height: 64px;
+    margin-top: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    background: #161620;
+    border-radius: 8px;
+    font-size: 32px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panelDesc {
+    width: 468px !important;
+    padding: 12px;
+
+    background: #161620;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actionContainer {
+    margin-bottom: -4px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.actionContainer > * {
+    width: 242px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    border: none;
+    text-align: center;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.panelList {
+    width: 468px !important;
+    padding: 12px;
+
+    background: #161620;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.panelList > * {
+    font-family: "Nunito";
+}
+
+/*! Food */
+
+.foodContainer {
+    width: 468px;
+    height: 240px;
+    padding: 12px;
+
+    background: #161620;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.foodHeader {
+    width: 452px;
+    height: 32px;
+    padding: 8px;
+
+    background: #121216;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.foodHeader > button {
+    width: 32px;
+    height: 32px;
+}
+
+.foodHeader > button:hover {
+    box-shadow: #ffffffff 3px 3px;
+}
+
+.foodHeader > button:active {
+    box-shadow: #b0b0ffff 3px 3px;
+}
+
+.foodHeader > * {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.foodName {
+    width: 112px;
+    text-align: center;
+}
+
+.foodNameAlt {
+    color: #808080;
+}
+
+.foodContent {
+    width: 460px;
+    height: 172px;
+    padding: 4px;
+
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}

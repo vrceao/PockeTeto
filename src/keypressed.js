@@ -1,4 +1,3 @@
-
 function keyPressed() {
     switch (key) {
         case keybinds.changeMenus[0]:
@@ -55,8 +54,7 @@ function keyPressed() {
             pauseMenu();
             break;
         case keybinds.tutorial[0]: case keybinds.tutorial[1]: case keybinds.tutorial[2]: case keybinds.tutorial[3]: case keybinds.tutorial[4]:
-            if (!teto.settings.paused) pause();
-            console.log("Tutorial doesnt exist yet");
+            tutorial();
             break;
     }
 }

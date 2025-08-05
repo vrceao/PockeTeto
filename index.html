@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PockeTeto</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/sidebar.css">
+    <link rel="stylesheet" href="style/home.css">
+    <link rel="stylesheet" href="style/panel.css">
     <link rel="icon" href="assets/trans.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,9 +42,14 @@
                 <img draggable="false" src="assets/svgs/work.svg"></svg>
                 <p>5. Leave</p>
             </button>
-            <button id="menuButton" onclick="pauseMenu();">
-                <img draggable="false" id="menuSvg" src="assets/svgs/menu.svg"></svg>
-            </button>
+            <div id="bottomButtons">
+                <button id="menuButton" onclick="pauseMenu();">
+                    <img draggable="false" id="menuSvg" src="assets/svgs/menu.svg"></svg>
+                </button>
+                <button id="tutorialButton" onclick="tutorial();">
+                    <img draggable="false" id="tutorialSvg" src="assets/svgs/tutorial.svg"></svg>
+                </button>
+            </div>
         </div>
         <div id="home">
             <div id="homeTop">
@@ -56,9 +64,9 @@
                     <div id="statsInfo">
                         <p id="tetoTime">Welcome to PockeTeto! ❤️</p>
                         <p id="tetoHealth">Game about taking care of Teto</p>
-                        <p id="tetoHappiness">Check 'readme.md' for more info</p>
+                        <p id="tetoHappiness">Press 'T' to read a short tutorial</p>
                         <p id="tetoSleep">Unpause the game to begin!</p>
-                        <p id="tetoHunger">^w^</p>
+                        <p id="tetoHunger"> ^w^</p>
                     </div>
                 </div>
             </div>
@@ -80,22 +88,23 @@
         <div id="panel">
             <div class="panelCategory scrollableContainer">
                 <p class="panelTitle">Home (๑•᎑•๑)</p>
-                <p class="panelDesc">Here you can spend time with Teto to make her happier.</p>
+                <p class="panelDesc">Here you can do fun stuff with Teto to make her happier.</p>
+                <div class="actionContainer">
+                    <button id="actionButtonPet" onclick="actionPet()">Pet Teto</button>
+                    <p id="actionMessagePet">Game not started</p>
+                </div>
                 <div class="panelList">
-                    <b>Gameplay</b>
-                    <p>• This is a simulation game in which you need to take care of your virtual Kasane Teto.</p>
-                    <p>• The point of the game is to balance Teto's stats.</p>
-                    <p>• When any of the stats reaches 0.0%, or hunger reaches 150.0%, you lose.</p>
-                    <b>Buffs & Debuffs</b>
-                    <p>• You can get various buffs and debuffs by playing.</p>
-                    <p>• They slowly increase/decrease your stats.</p>
-                    <p>• Each buff and debuff lasts for 8 in-game hours.</p>
-                    <p>• Every single buff and debuff you can get is listed on the panel in each category.</p>
+                    <b>Information</b>
+                    <p>• You can pet Teto every 2 in-game hours.</p>
+                    <b>Buffs</b>
+                    <p>• None.</p>
+                    <b>Debuffs</b>
+                    <p>• If you don't pet Teto for more than 2 hours after the cooldown while she's not sleeping, she receives a debuff.</p>
                 </div>
             </div>
             <div class="panelCategory scrollableContainer">
                 <p class="panelTitle">Game (˶˃ ᵕ ˂˶)</p>
-                <p class="panelDesc">Here you can play with Teto in the backyard doing all kinds of fun activities together.</p>
+                <p class="panelDesc">Here you can play with Teto and do various fun activities together.</p>
                 <div class="panelList">
                     <b>Information</b>
                     <p>• The game feature isn't implemented yet.</p>
@@ -118,7 +127,7 @@
                     <p>• Teto can fall asleep between 22:00-04:00.</p>
                     <p>• Teto can't go to sleep during any other action.</p>
                     <b>Buffs</b>
-                    <p>• None.</p>
+                    <p>• If Teto sleeps for exactly from 7 hours and 45 minutes to 8 hours and 15 minutes, she receives a buff.</p>
                     <b>Debuffs</b>
                     <p>• If Teto falls asleep after 00:00, she receives a debuff.</p>
                     <p>• If Teto wakes up after less than 6 hours, she receives a debuff.</p>
@@ -137,6 +146,7 @@
                         <button onclick="changeFood(1)">></button>
                     </div>
                     <div class="foodContent">
+                        <b>Description</b>
                         <p class="foodMessage">Heavy and savory food. Perfect for recovering after a long break, gaining energy and strength fast.</p>
                         <b>Statistics</b>
                         <p class="foodMessage">• You own 1 of this food. It costs $11.99.</p>
@@ -157,18 +167,37 @@
                     <b>Debuffs</b>
                     <p>• None.</p>
                 </div>
-                <button onclick="teto.stats.hunger += 10">(temporary) recover 10% food</button>
+                <button onclick="teto.stats.hunger += 100000">(temporary) recover 100000% food</button>
             </div>
             <div class="panelCategory scrollableContainer">
                 <p class="panelTitle">Leave (っ- ‸ - ς)</p>
-                <p class="panelDesc">Here you can leave Teto alone and visit your work to earn money or the shop to purchase stuff for Teto.</p>
+                <p class="panelDesc">Here you can leave Teto alone and visit the town.</p>
                 <div class="panelList">
                     <b>Information</b>
-                    <p>• The leave feature isn't implemented yet.</p>
+                    <p>• You can't interact with Teto when you leave.</p>
+                    <p>• You can't see Teto's stats when you're out.</p>
+                    <p>• You can come back to Teto anytime, time will vary on your distance from home.</p>
+                    <p>• The game feature isn't implemented yet.</p>
                     <b>Buffs</b>
                     <p>• None.</p>
                     <b>Debuffs</b>
                     <p>• None.</p>
+                </div>
+            </div>
+            <div class="scrollableContainer" id="tutorialElement">
+                <p class="panelTitle">Tutorial (˶ˆᗜˆ˵)</p>
+                <p class="panelDesc">Here you can get familiar with the game.</p>
+                <div class="panelList">
+                    <b>Gameplay</b>
+                    <p>• This is a simulation game in which you need to take care of your virtual Kasane Teto.</p>
+                    <p>• The point of the game is to balance Teto's stats.</p>
+                    <p>• When any of the stats reaches 0.0%, or hunger reaches 150.0%, you lose.</p>
+                    <b>Buffs & Debuffs</b>
+                    <p>• You can get various buffs and debuffs by playing.</p>
+                    <p>• They slowly increase/decrease your stats.</p>
+                    <p>• Each one lasts for exactly 8 in-game hours.</p>
+                    <p>• Every single buff and debuff you can get is listed on the panel in each category.</p>
+                    <b>Check 'README.md' for more info!</b>
                 </div>
             </div>
         </div>
@@ -193,9 +222,11 @@
 
     <script src="src/menu.js"></script>
     <script src="src/tick.js"></script>
+    <script src="src/stats.js"></script>
 
-    <script src="src/sleep.js"></script>
-    <script src="src/food.js"></script>
+    <script src="src/actions/sleep.js"></script>
+    <script src="src/actions/food.js"></script>
+    <script src="src/actions/pet.js"></script>
 
     <script src="src/keypressed.js"></script>
     <script src="src/settings.js"></script>

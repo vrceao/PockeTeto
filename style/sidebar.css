@@ -1,0 +1,98 @@
+
+#sidebar {
+    width: 128px;
+    height: 720px;
+
+    background: #121216;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+#pauseButton {
+    width: 96px;
+    height: 48px;
+    margin-top: 16px;
+
+    background: #181820;
+    border: 2px solid #b0b0ffff;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#pauseButton > img {
+    width: 32px;
+}
+
+#bottomButtons {
+    width: 96px;
+    height: 48px;
+
+    overflow: visible;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#menuButton, #tutorialButton {
+    width: 48px;
+    height: 48px;
+
+    background: #181820;
+    border: 2px solid #ffffff00;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#menuButton:hover {
+    box-shadow: #ffffffff -4px 4px;
+}
+
+#menuButton:active {
+    box-shadow: #b0b0ffff -4px 4px;
+}
+
+#menuButton {
+    border-radius: 8px 0px 0px 8px;
+}
+
+#tutorialButton {
+    border-radius: 0px 8px 8px 0px;
+}
+
+#menuButton > img, #tutorialButton > img {
+    width: 32px;
+}
+
+.sidebarTile {
+    width: 96px;
+    height: 99.2px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.sidebarTile > img {
+    width: 48px;
+    height: 48px;
+}
+
+.sidebarTile > p {
+    width: 80px;
+    height: 20px;
+
+    font-weight: bold;
+    text-align: center;
+}

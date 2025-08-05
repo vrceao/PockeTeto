@@ -6,10 +6,17 @@
 ✓ | 30.07.25/30.07.25 | Make a progress.txt file with tasks.
 ✗ | 30.07.25/30.07.25 | Round all stat-related values every tick toFixed(2).
 ✗ | 30.07.25/xx.xx.xx | Obtain sprites of Teto and render them on the screen using p5js, different sprites based on current actions.
-✗ | 02.08.25/xx.xx.xx | Make multiple style files so that it's easier to navigate.
+✓ | 02.08.25/05.08.25 | Make multiple style files so that it's easier to navigate.
 ✗ | 02.08.25/xx.xx.xx | Add sound effects, preferably the one from web extension.
+✗ | 05.08.25/xx.xx.xx | New 'mode' that activates once Teto's happiness drops to 0% - Stress bar that will randomly shift on it's own and will affect other stats, NSO Inspired.
+✓ | 05.08.25/05.08.25 | Add a tutorial button (next to pause menu button) and a tutorial panel.
 
 === Home
+
+✓ | 05.08.25/05.08.25 | Add a button that allows the player to pet Teto every 2 hours.
+✓ | 05.08.25/05.08.25 | Debuff if you don't pet Teto for more than 2 hours.
+✗ | 05.08.25/xx.xx.xx | After petting Teto 3 times in a row within 15 minutes of the cooldown, receive a buff.
+✓ | 05.08.25/xx.xx.xx | Teto can be pet during sleep, but doesn't get the debuff.
 
 === Game
 
@@ -17,11 +24,13 @@
 
 ✓ | 30.07.25/02.08.25 | If Teto wakes up after less than 6 hours, receive a health and happiness debuff.
 ✓ | 30.07.25/02.08.25 | After waking up, Teto can't sleep for the next 14 hours.
-✗ | 02.08.25/xx.xx.xx | Add a buff to sleeping that will give Teto health after sleeping for exactly 8 hours +- 30 minutes.
+✓ | 02.08.25/05.08.25 | Add a buff to sleeping that will give Teto health after sleeping for exactly 7:45-8:15.
+✓ | 05.08.25/05.08.25 | Teto can't fall asleep for 4 hours after waking up.
+✗ | 05.08.25/xx.xx.xx | Display how much time left until Teto can start sleeping instead of "Awake (Early)".
 
 === Food
 
-✗ | 30.07.25/xx.xx.xx | Add 3 foods.
+✓ | 30.07.25/02.08.25 | Add 3 foods.
 ✗ | 02.08.25/xx.xx.xx | Add functionality to foods.
 ✗ | 02.08.25/xx.xx.xx | Make tetoElements.foodMessage[2] in changeFood() support in-game hours display and support 1 digit values.
 ✗ | 02.08.25/xx.xx.xx | Add debuffs when food is too high.

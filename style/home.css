@@ -1,0 +1,159 @@
+
+#home {
+    width: 612px;
+    height: 720px;
+
+    background: #161620;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#home p {
+    font-family: "Silkscreen";
+}
+
+#homeTop {
+    display: flex;
+    flex-direction: column;
+}
+
+#homeTop p {
+    font-size: 24px;
+}
+
+#statsGroup {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+#statsButtons {
+    height: 256px;
+    margin-left: -76px;
+
+    background: #121216;
+    border-radius: 8px;
+    opacity: 0%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#statsButtons > button {
+    width: 48px;
+    height: 48px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    border-radius: 6px;
+}
+
+#statsButtons > button > img {
+    height: 28px;
+}
+
+#statsInfo {
+    padding-top: 8px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#tetoTime {
+    margin-bottom: 8px;
+    color: #ffffb0;
+}
+
+#tetoPausedMessage {
+    margin-bottom: 8px;
+    color: #ffb0b0;
+    opacity: 0%;
+}
+
+.tetoMessages {
+    padding-bottom: 8px;
+
+    display: none;
+    flex-direction: column;
+}
+
+#homeDown p {
+    width: 604px;
+
+    color: #ffffb0;
+    font-family: "Silkscreen";
+    font-size: 16px;
+
+    overflow-wrap: break-word;
+    white-space: normal;
+    line-height: 1.5;
+}
+
+/*! Pause Menu */
+
+#pauseMenuElement {
+    display: none;
+    width: 1116px;
+    height: 696px;
+    padding: 12px;
+
+    background: #121216;
+    border-radius: 12px;
+
+    flex-direction: column;
+}
+
+.pauseMenuEntry {
+    width: 1116px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.pauseMenuEntry > * {
+    height: 51px;
+
+    box-sizing: border-box;
+    border: 2px solid #ffffff00;
+    box-sizing: border-box;
+    border-radius: 8px;
+
+    display: flex;
+}
+
+.pauseMenuTitle {
+    width: 256px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    padding: 10px;
+
+    background: #161620;
+    font-size: 22px;
+}
+
+.pauseMenuEntry > button {
+    width: 256px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    padding: 10px;
+
+    font-size: 22px;
+}
+
+.pauseMenuDescription {
+    width: 580px;
+    padding: 8px;
+
+    background: #161620;
+    font-size: 14px;
+}
+
+/*! Tutorial */
+
+#tutorialElement {
+    display: none !important;
+}

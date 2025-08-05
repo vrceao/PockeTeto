@@ -32,6 +32,7 @@ const sidebarTile = document.getElementsByClassName("sidebarTile")
 
 function changeMenu(menu) {
     if (teto.settings.pauseMenu) pauseMenu();
+    if (teto.settings.tutorial) tutorial();
 
     // Update the menu variable
     teto.settings.menu = menu;
@@ -100,11 +101,13 @@ function pauseFlash() {
     // this will notify the player when they try to do something when the game is paused and flash the element*
 }
 
-//! Menu
+//! Pause menu & Tutorial
 
 function pauseMenu() {
+    // Pause the game if it's not paused
     if (teto.settings.paused == false) pause();
-    else if (teto.settings.paused == false && teto.settings.pauseMenu == true) pause();
+    // Close the tutorial if it's opened
+    if (teto.settings.tutorial == true) tutorial();
 
     if (teto.settings.pauseMenu) {
         menuSvg.src = "assets/svgs/menu.svg";
@@ -113,6 +116,7 @@ function pauseMenu() {
         pauseMenuElement.style.display = `none`;
         panel.style.display = "flex";
         home.style.display = "flex";
+        if (teto.settings.menu != null) sidebarTile[teto.settings.menu].style.border = "2px solid #b0b0ffff";
     } else {
         menuSvg.src = "assets/svgs/menu2.svg";
         menuButton.style.border = "2px solid #b0b0ffff";
@@ -124,6 +128,35 @@ function pauseMenu() {
         }
         panel.style.display = "none";
         home.style.display = "none";
+    }
+}
+
+function tutorial() {
+    panel.style.display = "flex";
+    home.style.display = "flex";
+    // Pause the game if it's not paused
+    if (teto.settings.paused == false) pause();
+    // Close the pause menu if it's opened
+    if (teto.settings.pauseMenu == true) pauseMenu();
+
+    if (teto.settings.tutorial) {
+        tutorialSvg.src = "assets/svgs/tutorial.svg";
+        tutorialButton.style.border = "2px solid #ffffff00";
+        teto.settings.tutorial = false;
+        tutorialElement.style.display = `none`;
+        if (teto.settings.menu != null) changeMenu(teto.settings.menu);
+        else panel.style.opacity = "0%";
+    } else {
+        if (teto.settings.menu == null) panel.style.opacity = "100%";
+        tutorialSvg.src = "assets/svgs/tutorial2.svg";
+        tutorialButton.style.border = "2px solid #b0b0ffff";
+        teto.settings.tutorial = true;
+        tutorialElement.style.display = `flex`;
+        // Default all buttons
+        for (let i = 0; i < sidebarTile.length; i++) {
+            panelCategory[i].style.display = `none`;
+            sidebarTile[i].style.border = ``;
+        }
     }
 }
 
@@ -144,7 +177,7 @@ function showMessages(stat) {
 
 //! Stat messages renderer
 
-function updateDetails() {
+function updateMessages() {
     for (let i = 0; i < teto.stats.messages.length; i++) {
         tetoElements.tetoMessages[i].innerHTML = "";
         let statTypeText = document.createElement("p");
