@@ -33,6 +33,7 @@ const sidebarTile = document.getElementsByClassName("sidebarTile")
 function changeMenu(menu) {
     if (teto.settings.pauseMenu) pauseMenu();
     if (teto.settings.tutorial) tutorial();
+    else tutorialElement.style.display = "none";
 
     // Update the menu variable
     teto.settings.menu = menu;
@@ -67,6 +68,7 @@ function pause() {
         if (!teto.settings.started) {
             if (teto.settings.menu == null) changeMenu(0);
             if (teto.settings.messages == null) showMessages(0);
+            if (!teto.settings.tutorial) tutorialElement.style.display = "none";
 
             setInterval(() => {
                 frame();

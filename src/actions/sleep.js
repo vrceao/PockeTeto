@@ -15,33 +15,19 @@ function actionSleepCheck() {
     if (teto.action == "sleep") {
         actionButtonSleep.textContent = `Wake up`;
         actionButtonSleep.style.color = `#b0ffb0`;
-        let hoursAsleep = Math.floor(teto.sleepingTime / 60);
-        let minutesAsleep = teto.sleepingTime % 60;
-        if (hoursAsleep < 10) hoursAsleep = "0" + hoursAsleep;
-        if (minutesAsleep < 10) minutesAsleep = "0" + minutesAsleep;
-        actionMessageSleep.textContent = `Sleeping (${hoursAsleep}:${minutesAsleep})`;
+        actionMessageSleep.textContent = `Sleeping (${formatTime(teto.sleepingTime)})`;
     }
     // On cooldown
     else if (teto.sleepCooldown > 0) {
         actionButtonSleep.textContent = `Disabled`;
         actionButtonSleep.style.color = `#ffb0b0`;
-        let hoursCooldown = Math.floor(teto.sleepCooldown / 60);
-        let minutesCooldown = teto.sleepCooldown % 60;
-        if (hoursCooldown < 10) hoursCooldown = "0" + hoursCooldown;
-        if (minutesCooldown < 10) minutesCooldown = "0" + minutesCooldown;
-        actionMessageSleep.textContent = `Awake (Cooldown ${hoursCooldown}:${minutesCooldown})`;
+        actionMessageSleep.textContent = `Awake (Cooldown ${formatTime(teto.sleepCooldown)})`;
     }
     // Early (10:00-22:00)
-    else if (teto.time.hours >= 8 && teto.time.hours < 22) {
+    else if (teto.time.hours >= 4 && teto.time.hours < 22) {
         actionButtonSleep.textContent = `Disabled`;
         actionButtonSleep.style.color = `#ffb0b0`;
-        actionMessageSleep.textContent = `Awake (Early)`;
-    }
-    // Late (4:00-10:00)
-    else if (teto.time.hours >= 4 && teto.time.hours < 8) {
-        actionButtonSleep.textContent = `Disabled`;
-        actionButtonSleep.style.color = `#ffb0b0`;
-        actionMessageSleep.textContent = `Awake (Late)`;
+        actionMessageSleep.textContent = `Awake (Available ${getCountdownTo(22, 0)})`;
     }
     // Busy
     else if (teto.action != "home") {
@@ -60,6 +46,8 @@ function actionSleepCheck() {
 function actionSleep() {
     if (!teto.settings.started) return;
     if (teto.action == "sleep") {
+        // Add sleep cooldown
+        teto.sleepCooldown = 240;
         // Debuff slept too little
         if (teto.sleepingTime < 360) teto.debuffs.sleep.sleptForTooLittle = 480;
         // Buff slept 7:45-8:15

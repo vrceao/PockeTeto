@@ -14,6 +14,22 @@ function updateTime() {
     else tetoTime.textContent = `Day ${teto.time.days} | 0${teto.time.hours}:0${teto.time.minutes} | ${teto.settings.difficultyText}`
 }
 
+// This function returns a string in a "HH:MM" format
+function formatTime(minutes) {
+    let hours = Math.floor(minutes / 60);
+    let mins = minutes % 60;
+    return `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;
+}
+
+//! Countdowns
+
+function getCountdownTo(targetHour, targetMinute) {
+    const currentTotalMinutes = teto.time.hours * 60 + teto.time.minutes;
+    const targetTotalMinutes = targetHour * 60 + targetMinute;
+
+    return `${formatTime(targetTotalMinutes - currentTotalMinutes)}`;
+}
+
 //! Tick
 
 function nextTick() {

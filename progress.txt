@@ -10,13 +10,14 @@
 ✗ | 02.08.25/xx.xx.xx | Add sound effects, preferably the one from web extension.
 ✗ | 05.08.25/xx.xx.xx | New 'mode' that activates once Teto's happiness drops to 0% - Stress bar that will randomly shift on it's own and will affect other stats, NSO Inspired.
 ✓ | 05.08.25/05.08.25 | Add a tutorial button (next to pause menu button) and a tutorial panel.
+✗ | 07.08.25/xx.xx.xx | Add a staged difficulty that lets the player press for next tick instead of using the time mechanic.
 
 === Home
 
 ✓ | 05.08.25/05.08.25 | Add a button that allows the player to pet Teto every 2 hours.
 ✓ | 05.08.25/05.08.25 | Debuff if you don't pet Teto for more than 2 hours.
-✗ | 05.08.25/xx.xx.xx | After petting Teto 3 times in a row within 15 minutes of the cooldown, receive a buff.
-✓ | 05.08.25/xx.xx.xx | Teto can be pet during sleep, but doesn't get the debuff.
+✗ | 05.08.25/xx.xx.xx | After petting Teto 4 times in a row, receive a buff.
+✓ | 05.08.25/06.08.25 | Teto can be pet during sleep, but doesn't get the debuff until she wakes up.
 
 === Game
 
@@ -25,14 +26,14 @@
 ✓ | 30.07.25/02.08.25 | If Teto wakes up after less than 6 hours, receive a health and happiness debuff.
 ✓ | 30.07.25/02.08.25 | After waking up, Teto can't sleep for the next 14 hours.
 ✓ | 02.08.25/05.08.25 | Add a buff to sleeping that will give Teto health after sleeping for exactly 7:45-8:15.
-✓ | 05.08.25/05.08.25 | Teto can't fall asleep for 4 hours after waking up.
-✗ | 05.08.25/xx.xx.xx | Display how much time left until Teto can start sleeping instead of "Awake (Early)".
+✓ | 05.08.25/07.08.25 | Teto can't fall asleep for 4 hours after waking up.
+✓ | 05.08.25/07.08.25 | Display how much time left until Teto can start sleeping instead of "Awake (Early)".
 
 === Food
 
 ✓ | 30.07.25/02.08.25 | Add 3 foods.
 ✗ | 02.08.25/xx.xx.xx | Add functionality to foods.
-✗ | 02.08.25/xx.xx.xx | Make tetoElements.foodMessage[2] in changeFood() support in-game hours display and support 1 digit values.
+✓ | 02.08.25/06.08.25 | Make tetoElements.foodMessage[2] in changeFood() support in-game hours display and support 1 digit values.
 ✗ | 02.08.25/xx.xx.xx | Add debuffs when food is too high.
 
 === Leave

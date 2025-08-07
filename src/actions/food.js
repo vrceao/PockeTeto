@@ -21,9 +21,9 @@ function changeFood(value) {
     ][teto.selectedFood];
     // Time to consume
     tetoElements.foodMessage[2].textContent = [
-        `• This food will take Teto 00:${teto.foodTime.meat} to consume.`,
-        `• This food will take Teto 00:${teto.foodTime.veggies} to consume.`,
-        `• This food will take Teto 00:0${teto.foodTime.sweets} to consume.`,
+        `• This food will take Teto ${formatTime(teto.foodTime.meat)} to consume.`,
+        `• This food will take Teto ${formatTime(teto.foodTime.veggies)} to consume.`,
+        `• This food will take Teto ${formatTime(teto.foodTime.sweets)} to consume.`,
     ][teto.selectedFood];
     // Hunger stat
     tetoElements.foodMessage[3].textContent = [
