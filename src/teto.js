@@ -39,7 +39,7 @@ let teto = {
             sleptTooQuick: 0
         },
         food: {
-
+            sweetsDebuff: 0
         }
     },
     buffs: {
@@ -47,7 +47,9 @@ let teto = {
             SleptGoodAmount: 0
         },
         food: {
-
+            meatBuff: 0,
+            veggieBuff: 0,
+            sweetsBuff: 480
         }
     },
     // Player inventory
@@ -72,9 +74,9 @@ let teto = {
         sweets: 5
     },
     foodGain: {
-        meat: 70.0,
-        veggies: 50.0,
-        sweets: 30.0
+        meat: 70,
+        veggies: 50,
+        sweets: 30
     },
     // Actions: home, game, sleep, food, alone
     action: "home",
@@ -82,6 +84,10 @@ let teto = {
     sleepCooldown: 0,
     petCooldown: 30,
     selectedFood: 0,
+    foodKeys: ["meat", "veggies", "sweets"],
+    eatenFood: null,
+    hungerGained: 0,
+    eatingFinish: [null, null],
     // Time management
     time : {
         starting: 60 * 60 * 8 + 60 * 60 * 24,

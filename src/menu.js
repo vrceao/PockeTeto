@@ -186,10 +186,10 @@ function updateMessages() {
         statTypeText.style.fontSize = "24px";
 
         // Set correct types
-        if (i == 0) tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Health`;
-        else if (i == 1) tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Happiness`;
-        else if (i == 2) tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Sleep`;
-        else tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Hunger`;
+        if (i == 0) tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Health (${teto.stats.tickDifference.health.toFixed(2).toString()}%/t)`;
+        else if (i == 1) tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Happiness (${teto.stats.tickDifference.happiness.toFixed(2).toString()}%/t)`;
+        else if (i == 2) tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Sleep (${teto.stats.tickDifference.sleep.toFixed(2).toString()}%/t)`;
+        else tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Hunger (${teto.stats.tickDifference.hunger.toFixed(2).toString()}%/t)`;
 
         for (let j = 0; j < teto.stats.messages[i].length; j++) {
             let statText = document.createElement("p");

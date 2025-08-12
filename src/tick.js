@@ -60,6 +60,7 @@ function nextTick() {
     actionPetCheck()
     actionSleepCheck();
     actionFoodCheck();
+    updateFoodDetails();
 
     // Update all stats (Separate script)
     updateStats();
@@ -85,10 +86,10 @@ function nextTick() {
     teto.stats.hunger += teto.stats.tickDifference.hunger;
 
     // Cap the stats on certain values
-    if (teto.stats.health >= 100) teto.stats.health = 100;
-    if (teto.stats.happiness >= 100) teto.stats.happiness = 100;
-    if (teto.stats.sleep >= 100) teto.stats.sleep = 100;
-    if (teto.stats.hunger >= 150 && teto.stats.hunger < 200) teto.stats.hunger = 150;
+    // if (teto.stats.health >= 100) teto.stats.health = 100;
+    // if (teto.stats.happiness >= 100) teto.stats.happiness = 100;
+    // if (teto.stats.sleep >= 100) teto.stats.sleep = 100;
+    // if (teto.stats.hunger >= 150) teto.stats.hunger = 150;
 
     // Update stats display
     if (teto.stats.tickDifference.health >= 0) tetoHealth.textContent = `${teto.stats.health.toFixed(1)}% Health (+${teto.stats.tickDifference.health.toFixed(2).toString()}%/t)`;
@@ -125,5 +126,5 @@ function frame() {
     if (teto.settings.paused) return;
     teto.time.ticks += teto.settings.difficulty;
     if (teto.time.ticks % 60 == 0) nextTick();
-    if (teto.stats.health <= 0 || teto.stats.happiness <= 0 || teto.stats.sleep <= 0 || teto.stats.hunger <= 0 || teto.stats.hunger == 150) gameOver();
+    if (teto.stats.health <= 0 || teto.stats.happiness <= 0 || teto.stats.sleep <= 0 || teto.stats.hunger <= 0 || teto.stats.hunger > 150) gameOver();
 }

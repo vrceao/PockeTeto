@@ -96,9 +96,9 @@
                 <div class="panelList">
                     <b>Information</b>
                     <p>• You can pet Teto every 2 in-game hours.</p>
-                    <b>Buffs</b>
+                    <b>Buffs & Positive effects</b>
                     <p>• None.</p>
-                    <b>Debuffs</b>
+                    <b>Debuffs & Negative effects</b>
                     <p>• If you don't pet Teto for more than 2 hours after the cooldown while she's not sleeping, she receives a debuff.</p>
                 </div>
             </div>
@@ -108,9 +108,9 @@
                 <div class="panelList">
                     <b>Information</b>
                     <p>• The game feature isn't implemented yet.</p>
-                    <b>Buffs</b>
+                    <b>Buffs & Positive effects</b>
                     <p>• None.</p>
-                    <b>Debuffs</b>
+                    <b>Debuffs & Negative effects</b>
                     <p>• None.</p>
                 </div>
             </div>
@@ -126,12 +126,14 @@
                     <p>• Teto can be asleep between 22:00-10:00.</p>
                     <p>• Teto can fall asleep between 22:00-04:00.</p>
                     <p>• Teto can't go to sleep during any other action.</p>
-                    <b>Buffs</b>
+                    <p>• Teto can't fall asleep if her hunger is below 40%.</p>
+                    <p>• Teto will automatically wake up when hunger falls below 20%.</p>
+                    <b>Buffs & Positive effects</b>
                     <p>• If Teto sleeps for exactly from 7 hours and 45 minutes to 8 hours and 15 minutes, she receives a buff.</p>
-                    <b>Debuffs</b>
-                    <p>• If Teto falls asleep after 00:00, she receives a debuff.</p>
-                    <p>• If Teto wakes up after less than 6 hours, she receives a debuff.</p>
-                    <p>• If Teto goes to sleep after less than 14 hours have passed since waking up, she receives a debuff.</p>
+                    <b>Debuffs & Negative effects</b>
+                    <p>• If Teto falls asleep after 00:00, she receives a health debuff.</p>
+                    <p>• If Teto wakes up after less than 6 hours, she receives a health & happiness debuff.</p>
+                    <p>• If Teto goes to sleep after less than 14 hours have passed since waking up, she receives a health debuff.</p>
                 </div>
             </div>
             <div class="panelCategory scrollableContainer">
@@ -161,13 +163,14 @@
                 </div>
                 <div class="panelList">
                     <b>Information</b>
-                    <p>• None of the foods above work yet. Use the button below (scroll) to recover food.</p>
-                    <b>Buffs</b>
+                    <p>• Teto can't eat after midnight until 6 AM.</p>
+                    <b>Buffs & Positive effects</b>
                     <p>• None.</p>
-                    <b>Debuffs</b>
-                    <p>• None.</p>
+                    <b>Debuffs & Negative effects</b>
+                    <p>• Teto will start losing happiness when hunger falls below 30%.</p>
+                    <p>• Teto will start losing health when hunger falls below 20%.</p>
+                    <p>• Teto will start losing health when hunger rises above 100%.</p>
                 </div>
-                <button onclick="teto.stats.hunger += 100000">(temporary) recover 100000% food</button>
             </div>
             <div class="panelCategory scrollableContainer">
                 <p class="panelTitle">Leave (っ- ‸ - ς)</p>
@@ -178,9 +181,9 @@
                     <p>• You can't see Teto's stats when you're out.</p>
                     <p>• You can come back to Teto anytime, time will vary on your distance from home.</p>
                     <p>• The game feature isn't implemented yet.</p>
-                    <b>Buffs</b>
+                    <b>Buffs & Positive effects</b>
                     <p>• None.</p>
-                    <b>Debuffs</b>
+                    <b>Debuffs & Negative effects</b>
                     <p>• None.</p>
                 </div>
             </div>
@@ -197,6 +200,9 @@
                     <p>• They slowly increase/decrease your stats.</p>
                     <p>• Each one lasts for exactly 8 in-game hours.</p>
                     <p>• Every single buff and debuff you can get is listed on the panel in each category.</p>
+                    <b>Negative & Positive effects</b>
+                    <p>• Some actions will give you effects, they will passively change your stats.</p>
+                    <p>• Effects don't last a certain amount of time, they will be removed once Teto is stabilized.</p>
                     <b>Check 'README.md' for more info!</b>
                 </div>
             </div>

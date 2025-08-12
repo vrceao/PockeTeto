@@ -10,6 +10,10 @@ function actionSleepCheck() {
         teto.debuffs.sleep.sleepReached100 = 480;
         actionSleep();
     };
+    // Wake up when hunger reaches 20%
+    if (teto.action == "sleep" && teto.stats.hunger <= 20) {
+        actionSleep();
+    };
 
     // Sleeping
     if (teto.action == "sleep") {
@@ -28,6 +32,12 @@ function actionSleepCheck() {
         actionButtonSleep.textContent = `Disabled`;
         actionButtonSleep.style.color = `#ffb0b0`;
         actionMessageSleep.textContent = `Awake (Available ${getCountdownTo(22, 0)})`;
+    }
+    // Hungry
+    else if (teto.stats.hunger <= 40) {
+        actionButtonSleep.textContent = `Disabled`;
+        actionButtonSleep.style.color = `#ffb0b0`;
+        actionMessageSleep.textContent = `Awake (Too hungry)`;
     }
     // Busy
     else if (teto.action != "home") {

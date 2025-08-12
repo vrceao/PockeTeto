@@ -8,9 +8,13 @@
 ✗ | 30.07.25/xx.xx.xx | Obtain sprites of Teto and render them on the screen using p5js, different sprites based on current actions.
 ✓ | 02.08.25/05.08.25 | Make multiple style files so that it's easier to navigate.
 ✗ | 02.08.25/xx.xx.xx | Add sound effects, preferably the one from web extension.
-✗ | 05.08.25/xx.xx.xx | New 'mode' that activates once Teto's happiness drops to 0% - Stress bar that will randomly shift on it's own and will affect other stats, NSO Inspired.
+✗ | 05.08.25/xx.xx.xx | New Teto Overload mode that activates once Teto's happiness drops to 0% - Stress bar that will randomly shift on it's own and will affect other stats, NSO Inspired.
 ✓ | 05.08.25/05.08.25 | Add a tutorial button (next to pause menu button) and a tutorial panel.
 ✗ | 07.08.25/xx.xx.xx | Add a staged difficulty that lets the player press for next tick instead of using the time mechanic.
+✓ | 12.08.25/12.08.25 | Lower happiness when hunger/health below 30%, lower health when hunger/health below 20%.
+✓ | 12.08.25/12.08.25 | Add a total lose/gain of stat in statMessages.
+✗ | 12.08.25/xx.xx.xx | Add a "+" when a value is positive everywhere in statMessages.
+✗ | 12.08.25/xx.xx.xx | After game over, make the stat that killed Teto color red.
 
 === Home
 
@@ -28,13 +32,16 @@
 ✓ | 02.08.25/05.08.25 | Add a buff to sleeping that will give Teto health after sleeping for exactly 7:45-8:15.
 ✓ | 05.08.25/07.08.25 | Teto can't fall asleep for 4 hours after waking up.
 ✓ | 05.08.25/07.08.25 | Display how much time left until Teto can start sleeping instead of "Awake (Early)".
+✓ | 12.08.25/12.08.25 | Teto can't fall asleep when her hunger is too low.
+✓ | 12.08.25/12.08.25 | Automatically wake up when hunger below 10%.
 
 === Food
 
 ✓ | 30.07.25/02.08.25 | Add 3 foods.
-✗ | 02.08.25/xx.xx.xx | Add functionality to foods.
+✓ | 02.08.25/12.08.25 | Add functionality to foods.
 ✓ | 02.08.25/06.08.25 | Make tetoElements.foodMessage[2] in changeFood() support in-game hours display and support 1 digit values.
-✗ | 02.08.25/xx.xx.xx | Add debuffs when food is too high.
+✓ | 02.08.25/12.08.25 | Add negative effects when food is too high.
+✗ | 12.08.25/xx.xx.xx | Teto will puke when her hunger reaches a very high amount (Make that more frequent in the upcoming Teto Overload mode).
 
 === Leave
 
