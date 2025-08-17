@@ -55,6 +55,10 @@ function actionSleepCheck() {
 
 function actionSleep() {
     if (!teto.settings.started) return;
+    else if (teto.settings.paused) {
+        pauseFlash();
+        return;
+    }
     if (teto.action == "sleep") {
         // Add sleep cooldown
         teto.sleepCooldown = 240;

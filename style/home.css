@@ -63,13 +63,17 @@
 }
 
 #tetoTime {
-    margin-bottom: 8px;
+    color: #ffd098;
+}
+
+#tetoAction {
     color: #ffffb0;
+    margin-bottom: 8px;
 }
 
 #tetoPausedMessage {
     margin-bottom: 8px;
-    color: #ffb0b0;
+    color: #ffc8c8;
     opacity: 0%;
 }
 
@@ -104,14 +108,18 @@
     border-radius: 12px;
 
     flex-direction: column;
+    gap: 12px;
 }
 
 .pauseMenuEntry {
     width: 1116px;
 
+    overflow: visible;
+
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    gap: 12px;
 }
 
 .pauseMenuEntry > * {
@@ -127,8 +135,6 @@
 
 .pauseMenuTitle {
     width: 256px;
-    margin-right: 12px;
-    margin-bottom: 12px;
     padding: 10px;
 
     background: #161620;
@@ -137,8 +143,6 @@
 
 .pauseMenuEntry > button {
     width: 256px;
-    margin-right: 12px;
-    margin-bottom: 12px;
     padding: 10px;
 
     font-size: 22px;

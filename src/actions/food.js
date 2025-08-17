@@ -86,7 +86,8 @@ function actionFoodCheck() {
 
 function actionFood() {
     if (teto.action == "food") return;
-    if (teto.action == "sleep") return;
+    else if (teto.action == "sleep") return;
+    else if (teto.inventory[teto.foodKeys[teto.selectedFood]] <= 0) return;
     teto.action = "food";
     // Meat
     if (teto.selectedFood == 0) {

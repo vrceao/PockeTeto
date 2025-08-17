@@ -60,8 +60,7 @@
 }
 
 .actionContainer {
-    margin-bottom: -4px;
-
+    overflow: visible;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -69,9 +68,7 @@
 }
 
 .actionContainer > * {
-    width: 242px;
-    margin-right: 4px;
-    margin-bottom: 4px;
+    width: 246px;
     padding-top: 12px;
     padding-bottom: 12px;
 

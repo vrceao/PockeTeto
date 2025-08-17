@@ -63,6 +63,7 @@
                     </div>
                     <div id="statsInfo">
                         <p id="tetoTime">Welcome to PockeTeto! ❤️</p>
+                        <p id="tetoAction"></p>
                         <p id="tetoHealth">Game about taking care of Teto</p>
                         <p id="tetoHappiness">Press 'T' to read a short tutorial</p>
                         <p id="tetoSleep">Unpause the game to begin!</p>
@@ -97,7 +98,7 @@
                     <b>Information</b>
                     <p>• You can pet Teto every 2 in-game hours.</p>
                     <b>Buffs & Positive effects</b>
-                    <p>• None.</p>
+                    <p>• If you pet Teto at least 6 times in a day, she will receive a buff for every pat that day.</p>
                     <b>Debuffs & Negative effects</b>
                     <p>• If you don't pet Teto for more than 2 hours after the cooldown while she's not sleeping, she receives a debuff.</p>
                 </div>
@@ -131,6 +132,8 @@
                     <b>Buffs & Positive effects</b>
                     <p>• If Teto sleeps for exactly from 7 hours and 45 minutes to 8 hours and 15 minutes, she receives a buff.</p>
                     <b>Debuffs & Negative effects</b>
+                    <p>• Teto will start losing happiness when sleep falls below 30%.</p>
+                    <p>• Teto will start losing health when sleep falls below 20%.</p>
                     <p>• If Teto falls asleep after 00:00, she receives a health debuff.</p>
                     <p>• If Teto wakes up after less than 6 hours, she receives a health & happiness debuff.</p>
                     <p>• If Teto goes to sleep after less than 14 hours have passed since waking up, she receives a health debuff.</p>
@@ -167,6 +170,7 @@
                     <b>Buffs & Positive effects</b>
                     <p>• None.</p>
                     <b>Debuffs & Negative effects</b>
+                    <p>• When Teto's hunger is above 100%, there's a scaling chance every minute that Teto will puke lowering many stats.</p>
                     <p>• Teto will start losing happiness when hunger falls below 30%.</p>
                     <p>• Teto will start losing health when hunger falls below 20%.</p>
                     <p>• Teto will start losing health when hunger rises above 100%.</p>
@@ -233,6 +237,7 @@
     <script src="src/actions/sleep.js"></script>
     <script src="src/actions/food.js"></script>
     <script src="src/actions/pet.js"></script>
+    <script src="src/actions/puke.js"></script>
 
     <script src="src/keypressed.js"></script>
     <script src="src/settings.js"></script>

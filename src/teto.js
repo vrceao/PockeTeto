@@ -24,8 +24,10 @@ let teto = {
         paused: true,
         pauseMenu: false,
         tutorial: false,
-        gameover: false
+        gameover: false,
+        gameoverReason: ""
     },
+
     // Buffs and debuffs
     debuffs: {
         home: {
@@ -42,7 +44,11 @@ let teto = {
             sweetsDebuff: 0
         }
     },
+
     buffs: {
+        home: {
+            petStreak: 0
+        },
         sleep: {
             SleptGoodAmount: 0
         },
@@ -67,27 +73,37 @@ let teto = {
             sweets: 3.99
         }
     },
+
     // Time to consume foods
     foodTime: {
         meat: 20,
         veggies: 12,
         sweets: 5
     },
+    // Amount of hunger foods restore
     foodGain: {
         meat: 70,
         veggies: 50,
         sweets: 30
     },
-    // Actions: home, game, sleep, food, alone
+
+    // Actions: home, game, sleep, food, alone, puke
     action: "home",
+    previousAction: "home",
+    actionTime: -1,
+
     sleepingTime: null,
     sleepCooldown: 0,
-    petCooldown: 30,
+
     selectedFood: 0,
     foodKeys: ["meat", "veggies", "sweets"],
     eatenFood: null,
     hungerGained: 0,
     eatingFinish: [null, null],
+
+    petCooldown: 30,
+    petStreak: 0,
+
     // Time management
     time : {
         starting: 60 * 60 * 8 + 60 * 60 * 24,
@@ -96,13 +112,17 @@ let teto = {
         hours: null,
         days: 1
     },
+
     // Stats management
     stats: {
+        statKeys: ["health", "happiness", "sleep", "hunger"],
+
         // Values in %
         health: 75,
         happiness: 50,
         sleep: 75,
         hunger: 50,
+
         // Difference of each stat at every tick (Resets every tick)
         tickDifference: {
             health: 0,
@@ -110,6 +130,7 @@ let teto = {
             sleep: 0,
             hunger: 0,
         },
+
         // Stats messages
         messages: [
             health = [],
@@ -117,5 +138,10 @@ let teto = {
             sleep = [],
             hunger = []
         ]
+    },
+
+    // Future gamemode "Teto Overload" inspired by Needy Streamer Overload
+    overload: {
+        active: false
     }
 }

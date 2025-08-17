@@ -29,4 +29,14 @@ function actionPetCheck() {
 function actionPet() {
     if (teto.petCooldown > 0) return;
     teto.petCooldown = 120;
+
+    teto.petStreak++;
+
+    if (teto.petStreak >= 6) {
+        teto.buffs.home.petStreak = 480;
+    }
+}
+
+function restartPetStreak() {
+    teto.petStreak = 0;
 }

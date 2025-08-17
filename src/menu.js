@@ -100,7 +100,19 @@ function pause() {
 }
 
 function pauseFlash() {
-    // this will notify the player when they try to do something when the game is paused and flash the element*
+    pauseButton.style.border = "2px solid #ffb0b000";
+
+    setTimeout(() => {
+        if (teto.settings.paused) pauseButton.style.border = "2px solid #ffb0b0ff";
+    }, 300);
+
+    setTimeout(() => {
+        if (teto.settings.paused) pauseButton.style.border = "2px solid #ffb0b000";
+    }, 600);
+
+    setTimeout(() => {
+        if (teto.settings.paused) pauseButton.style.border = "";
+    }, 900);
 }
 
 //! Pause menu & Tutorial
@@ -186,10 +198,10 @@ function updateMessages() {
         statTypeText.style.fontSize = "24px";
 
         // Set correct types
-        if (i == 0) tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Health (${teto.stats.tickDifference.health.toFixed(2).toString()}%/t)`;
-        else if (i == 1) tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Happiness (${teto.stats.tickDifference.happiness.toFixed(2).toString()}%/t)`;
-        else if (i == 2) tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Sleep (${teto.stats.tickDifference.sleep.toFixed(2).toString()}%/t)`;
-        else tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Hunger (${teto.stats.tickDifference.hunger.toFixed(2).toString()}%/t)`;
+        if (i == 0) tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Health (${plus(teto.stats.tickDifference.health)}%/t)`;
+        else if (i == 1) tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Happiness (${plus(teto.stats.tickDifference.happiness)}%/t)`;
+        else if (i == 2) tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Sleep (${plus(teto.stats.tickDifference.sleep)}%/t)`;
+        else if (i == 3) tetoElements.tetoMessages[i].appendChild(statTypeText).textContent = `Hunger (${plus(teto.stats.tickDifference.hunger)}%/t)`;
 
         for (let j = 0; j < teto.stats.messages[i].length; j++) {
             let statText = document.createElement("p");
