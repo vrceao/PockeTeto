@@ -51,7 +51,6 @@ function actionFoodCheck() {
     if (teto.action == "food") {
         let finishHour = teto.time.hours;
         let finishMinute = teto.time.minutes + teto.foodTime[teto.eatenFood];
-
         finishHour = (finishHour + Math.floor(finishMinute / 60)) % 24;
         finishMinute = finishMinute % 60;
         actionButtonFood.textContent = `Disabled`;
@@ -94,22 +93,49 @@ function actionFood() {
         if (teto.inventory.meat <= 0) return;
         teto.eatenFood = "meat";
         teto.inventory.meat--;
-        teto.buffs.food.meat = 480;
+        // Effect - Increase hunger while eating meat
+        addEffect( "eatingMeat", [
+                { stat: "hunger", difference: teto.foodGain["meat"] / teto.foodTime["meat"] }
+            ], teto.foodTime["meat"] , "Teto is eating meat"
+        );
+        // Effect - Meat
+        addEffect( "effectMeat", [
+                { stat: "sleep", difference: 0.01}
+            ], 480 , "Teto ate meat"
+        );
     }
     // Veggies
     else if (teto.selectedFood == 1) {
         if (teto.inventory.veggies <= 0) return;
         teto.eatenFood = "veggies";
         teto.inventory.veggies--;
-        teto.buffs.food.veggies = 480;
+        // Effect - Increase hunger while eating veggies
+        addEffect( "eatingVeggies", [
+                { stat: "hunger", difference: teto.foodGain["veggies"] / teto.foodTime["veggies"] }
+            ], teto.foodTime["veggies"] , "Teto is eating veggies"
+        );
+        // Effect - Veggies
+        addEffect( "effectVeggies", [
+                { stat: "health", difference: 0.01}
+            ], 480 , "Teto ate veggies"
+        );
     }
     // Sweets
     else if (teto.selectedFood == 2) {
         if (teto.inventory.sweets <= 0) return;
         teto.eatenFood = "sweets";
         teto.inventory.sweets--;
-        teto.buffs.food.sweets = 480;
-        teto.debuffs.food.sweets = 480;
+        // Effect - Increase hunger while eating sweets
+        addEffect( "eatingSweets", [
+                { stat: "hunger", difference: teto.foodGain["sweets"] / teto.foodTime["sweets"] }
+            ], teto.foodTime["sweets"] , "Teto is eating sweets"
+        );
+        // Effect - Sweets
+        addEffect( "effectSweets", [
+                { stat: "health", difference: -0.01},
+                { stat: "happiness", difference: 0.01 }
+            ], 480 , "Teto ate sweets"
+        );
     }
 
     let finishHour = teto.time.hours;

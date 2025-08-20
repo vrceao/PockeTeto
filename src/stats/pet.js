@@ -1,7 +1,10 @@
 
 function actionPetCheck() {
     if (teto.petCooldown <= -120 && teto.action != "sleep") {
-        teto.debuffs.home.didntPet = 480;
+        addEffect( "forgotToPet", [
+                { stat: "happiness", difference: -0.01 }
+            ], 480, "Teto hasn't been pet for more than 2 hours"
+        );
     }
 
     // On cooldown
@@ -33,7 +36,10 @@ function actionPet() {
     teto.petStreak++;
 
     if (teto.petStreak >= 6) {
-        teto.buffs.home.petStreak = 480;
+        addEffect( "petStreak", [
+                { stat: "happiness", difference: 0.01 }
+            ], 480, "Teto has been pet more than 5 times today"
+        );
     }
 }
 

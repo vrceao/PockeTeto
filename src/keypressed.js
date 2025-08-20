@@ -1,3 +1,4 @@
+
 function keyPressed() {
     switch (key) {
         case keybinds.changeMenus[0]:

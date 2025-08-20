@@ -28,41 +28,14 @@ let teto = {
         gameoverReason: ""
     },
 
-    // Buffs and debuffs
-    debuffs: {
-        home: {
-            didntPet: 0
-        },
-        sleep: {
-            sleptPast10: 0,
-            sleptLate: 0,
-            sleepReached100: 0,
-            sleptForTooLittle: 0,
-            sleptTooQuick: 0
-        },
-        food: {
-            sweetsDebuff: 0
-        }
-    },
+    // Effects (Buffs and debuffs)
+    effects: [],
 
-    buffs: {
-        home: {
-            petStreak: 0
-        },
-        sleep: {
-            SleptGoodAmount: 0
-        },
-        food: {
-            meatBuff: 0,
-            veggieBuff: 0,
-            sweetsBuff: 480
-        }
-    },
     // Player inventory
     inventory: {
-        meat: 1,
-        veggies: 2,
-        sweets: 1
+        meat: Infinity,
+        veggies: Infinity,
+        sweets: Infinity
     },
     // Store management
     store: {

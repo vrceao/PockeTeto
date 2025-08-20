@@ -1,17 +1,27 @@
 
 function actionSleepCheck() {
-    // Debuff sleep past 10 AM
+    // Effect - Slept Past 10 AM
     if (teto.action == "sleep" && teto.time.hours == 10 && teto.time.minutes == 0) {
-        teto.debuffs.sleep.sleptPast10 = 480;
+        addEffect( "sleptPast10", [
+                { stat: "happiness", difference: -0.01 }
+            ], 480, "Teto slept past 10 AM"
+        );
         actionSleep();
     };
-    // Debuff sleep reached 100%
+    // Effect - Sleep reached 100%
     if (teto.action == "sleep" && teto.stats.sleep >= 100) {
-        teto.debuffs.sleep.sleepReached100 = 480;
+        addEffect( "sleepFull", [
+                { stat: "happiness", difference: -0.01 }
+            ], 480, "Teto's sleep reached 100%"
+        );
         actionSleep();
     };
-    // Wake up when hunger reaches 20%
+    // Effect - Woke up hungry
     if (teto.action == "sleep" && teto.stats.hunger <= 20) {
+        addEffect( "wokeUpHungry", [
+                { stat: "happiness", difference: -0.01 }
+            ], 480, "Teto woke up hungry"
+        );
         actionSleep();
     };
 
@@ -62,10 +72,21 @@ function actionSleep() {
     if (teto.action == "sleep") {
         // Add sleep cooldown
         teto.sleepCooldown = 240;
-        // Debuff slept too little
-        if (teto.sleepingTime < 360) teto.debuffs.sleep.sleptForTooLittle = 480;
-        // Buff slept 7:45-8:15
-        if (teto.sleepingTime >= 465 && teto.sleepingTime <= 495) teto.buffs.sleep.SleptGoodAmount = 480;
+        // Effect - Slept too little
+        if (teto.sleepingTime < 360) {
+            addEffect( "sleptTooLittle", [
+                    { stat: "happiness", difference: -0.01 },
+                    { stat: "health", difference: -0.01 }
+                ], 480, "Teto slept for less than 6 hours"
+            );
+        };
+        // Effect - Slept 7:45-8:15
+        if (teto.sleepingTime >= 465 && teto.sleepingTime <= 495) {
+            addEffect( "sleptPerfectAmount", [
+                    { stat: "health", difference: 0.01 }
+                ], 480, "Teto's sleep lasted from 7 hours and 45 minutes to 8 hours and 15 minutes"
+            );
+        };
         // Update action
         teto.action = "home";
     }
@@ -74,10 +95,20 @@ function actionSleep() {
         if (teto.sleepCooldown > 0) return;
         // Cancel between 04:00-22:00
         if (teto.time.hours >= 4 && teto.time.hours < 22) return;
-        // Debuff between 00:00-4:00
-        if (teto.time.hours >= 0 && teto.time.hours <= 4) teto.debuffs.sleep.sleptLate = 480;
-        // Debuff slept too quick
-        if (teto.sleepingTime > -840) teto.debuffs.sleep.sleptTooQuick = 480;
+        // Effect - Slept past midnight
+        if (teto.time.hours >= 0 && teto.time.hours <= 4) {
+            addEffect( "sleptPastMidnight", [
+                    { stat: "health", difference: -0.01 }
+                ], 480, "Teto went to sleep past midnight"
+            );
+        };
+        // Effect - Slept foo fast
+        if (teto.sleepingTime > -840) {
+            addEffect( "sleptTooFast", [
+                    { stat: "health", difference: -0.01 }
+                ], 480, "Teto went to sleep after less than 14 hours"
+            );
+        };
         // Update action
         teto.action = "sleep"
     }

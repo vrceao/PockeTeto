@@ -64,16 +64,6 @@ function nextTick() {
         teto.sleepingTime++;
     }
 
-    // Update action
-    teto.actionTime++;
-    if (teto.previousAction != teto.action) teto.actionTime = 0;
-    if (teto.action == "home") tetoAction.textContent = `Chilling (${formatTime(teto.actionTime)})`;
-    else if (teto.action == "sleep") tetoAction.textContent = `Sleeping (${formatTime(teto.actionTime)})`;
-    else if (teto.action == "food") tetoAction.textContent = `Eating (${formatTime(teto.actionTime)})`;
-    else if (teto.action == "puke") tetoAction.textContent = `Puking (${formatTime(teto.actionTime)})`;
-    else tetoAction.textContent = `Unknown action (${formatTime(teto.actionTime)})`;
-    teto.previousAction = teto.action;
-
     // Call action checks
     gameOver();
     actionPetCheck()
@@ -83,8 +73,19 @@ function nextTick() {
     actionPukeCheck();
     if (teto.time.hours == 0 && teto.time.minutes == 0) restartPetStreak();
 
-    // Update all stats (Separate script)
+    // Update all stats and messages
     updateStats();
+    updateMessages();
+
+    // Update action
+    teto.actionTime++;
+    if (teto.previousAction != teto.action) teto.actionTime = 0;
+    if (teto.action == "home") tetoAction.textContent = `Chilling (${formatTime(teto.actionTime)})`;
+    else if (teto.action == "sleep") tetoAction.textContent = `Sleeping (${formatTime(teto.actionTime)})`;
+    else if (teto.action == "food") tetoAction.textContent = `Eating (${formatTime(teto.actionTime)})`;
+    else if (teto.action == "puke") tetoAction.textContent = `Puking (${formatTime(teto.actionTime)})`;
+    else tetoAction.textContent = `Unknown action (${formatTime(teto.actionTime)})`;
+    teto.previousAction = teto.action;
 
     // Change percentage color based on increase/decrease
     if (teto.settings.gameOverReason != "health") {
@@ -111,20 +112,17 @@ function nextTick() {
     // Update stats display
     let exclamation = ["", "", "", ""];
     // if (teto.settings.gameOver) exclamation[teto.stats.statKeys.indexOf(teto.settings.gameOverReason)] = "✱ ";
-    tetoHealth.textContent = `${exclamation[0] + teto.stats.health.toFixed(1)}% Health (${plus(teto.stats.tickDifference.health)}%/t)`;
-    tetoHappiness.textContent = `${exclamation[1] + teto.stats.happiness.toFixed(1)}% Happiness (${plus(teto.stats.tickDifference.happiness)}%/t)`;
-    tetoSleep.textContent = `${exclamation[2] + teto.stats.sleep.toFixed(1)}% Sleep (${plus(teto.stats.tickDifference.sleep)}%/t)`;
-    tetoHunger.textContent = `${exclamation[3] + teto.stats.hunger.toFixed(1)}% Hunger (${plus(teto.stats.tickDifference.hunger)}%/t)`;
+    tetoHealth.textContent = `${exclamation[0] + teto.stats.health.toFixed(2)}% Health (${plus(teto.stats.tickDifference.health)}%/t)`;
+    tetoHappiness.textContent = `${exclamation[1] + teto.stats.happiness.toFixed(2)}% Happiness (${plus(teto.stats.tickDifference.happiness)}%/t)`;
+    tetoSleep.textContent = `${exclamation[2] + teto.stats.sleep.toFixed(2)}% Sleep (${plus(teto.stats.tickDifference.sleep)}%/t)`;
+    tetoHunger.textContent = `${exclamation[3] + teto.stats.hunger.toFixed(2)}% Hunger (${plus(teto.stats.tickDifference.hunger)}%/t)`;
 
     if (teto.settings.gameOver) return;
-
     // Update stats
     teto.stats.health += teto.stats.tickDifference.health;
     teto.stats.happiness += teto.stats.tickDifference.happiness;
     teto.stats.sleep += teto.stats.tickDifference.sleep;
     teto.stats.hunger += teto.stats.tickDifference.hunger;
-
-    updateMessages();
 }
 
 //! Game over
@@ -168,7 +166,7 @@ function gameOver() {
             teto.settings.gameOver = true;
             tetoPausedMessage.textContent = `Game over! Survived: ${(teto.time.ticks - teto.time.starting) / 60} Ticks.`;
             teto.settings.gameOverReason = "hunger";
-            teto.stats.hunger = 0;
+            teto.stats.hunger = 150;
         }
     }
 }

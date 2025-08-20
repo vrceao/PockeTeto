@@ -2,6 +2,8 @@
 //! Onload function that changes user preferences
 
 onload = function() {
+    // Update the version text
+    versionText.textContent = "Build 20.08.25";
     // Update the strings in food
     changeFood(0);
     // Disable context menu
@@ -15,7 +17,7 @@ onload = function() {
         fullscreenMode();
     }
     // Default difficulty
-    let current = 2;
+    let current = 2
     for (let i = 0; i < [2, 3, 5, 10, 20, 1].length; i++) {
         if (current == preferences.defaultDifficulty) break;
         changeDifficulty();
@@ -61,8 +63,8 @@ function changeMenu(menu) {
 function pause() {
     // Cancel if game over
     if (teto.settings.gameOver) return;
-    // Cancel if menu is opened
-    if (teto.settings.pauseMenu) return;
+    // Close the pause menu if it's opened
+    if (teto.settings.pauseMenu) pauseMenu();
 
     if (teto.settings.paused) {
         if (!teto.settings.started) {

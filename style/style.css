@@ -70,6 +70,18 @@ body {
     justify-content: center;
 }
 
+#versionText {
+    position: absolute;
+    z-index: 100;
+    margin: 8px;
+    bottom: 0;
+    left: 0;
+
+    font-size: 12px;
+    opacity: 25%;
+    user-select: none;
+}
+
 #container {
     width: 1280px !important;
     height: 720px !important;

@@ -16,6 +16,10 @@
 ✓ | 12.08.25/16.08.25 | Add a "+" when a value is positive everywhere in statMessages.
 ✓ | 12.08.25/17.08.25 | After game over, make the stat that killed Teto reveal itself.
 ✓ | 14.08.25/16.08.25 | Make a function for creating buffs/debuffs quickly in stats.js.
+✓ | 20.08.25/20.08.25 | Use a class for buffs/debuffs to make it cleaner.
+✗ | 20.08.25/xx.xx.xx | Add a save/load feature in the pause menu.
+✗ | 20.08.25/xx.xx.xx | Add a stat decimal point feature in the pause menu (0, 1, 2).
+✗ | 20.08.25/xx.xx.xx | Add a button to copy the Teto element in the pause menu.
 
 === Home
 

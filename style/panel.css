@@ -171,3 +171,11 @@
     flex-direction: column;
     gap: 4px;
 }
+
+.foodContent > b {
+    margin-top: 12px;
+}
+
+.foodContent b:first-of-type {
+    margin-top: 0px;
+}
